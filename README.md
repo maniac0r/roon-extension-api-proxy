@@ -12,7 +12,7 @@ This NodeJS service is needed as a proxy between my Python projects (HomeAssista
    * On Mac OS, you can use [homebrew](http://brew.sh) to install Node.js.
    * On Linux, you can use your distribution's package manager, but make sure it installs a recent Node.js. Otherwise just install from the above link.
 
-   a) You may also use Docker to host the extension, for that case I've included a simple script which you can run to install/update the docker container with the nodeJS module running.
+   a) You may also use Docker to host the extension, for that case I've included a simple script which you can run to install/update the docker container with the nodeJS module running. Simply run install_docker.sh on your Docker host in that case.
 
 2. Download/install the extension
 
@@ -28,13 +28,10 @@ This NodeJS service is needed as a proxy between my Python projects (HomeAssista
     node .
     ```
 
-    * Linux/MacOS users, you can simple run the run_extension.sh
-    ```bash
-    node .
-    ```
+   * Linux/MacOS users, you can simple run the run_extension.sh
 
    * To run the extension as a docker container (e.g. on your NAS or server)
-    Simply Run the install_docker.sh file on your Docker host.
+    Simply Run the install_docker.sh file on your Docker host. No need to install NodeJS etc. as that will be run inside teh docker container.
 
 
 3. Done !
