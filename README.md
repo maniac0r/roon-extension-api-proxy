@@ -41,5 +41,5 @@ This NodeJS service is needed as a proxy between my Python projects (HomeAssista
 
 ## Important notes
 
-This proxy runs a webserver at a given port (defaults to 3006). On this webservice some rest endpoints ar emade available for the Python modules to talk to Roon. This is unprotected / unsafe communication. Never ever open up this port to the outside world, keep it internal in your network. If you fail to do so, hackers will be able to control your Roon zones (spooky !).
+This proxy runs a webserver at a given port (defaults to 3006). On this webservice some rest endpoints are made available for the Python modules to talk to Roon. This is unprotected / unsafe communication. Never ever open up this port to the outside world, keep it internal in your network. If you fail to do so, hackers will be able to control your Roon zones (spooky !).
 
