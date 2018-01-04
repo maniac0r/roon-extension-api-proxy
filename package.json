@@ -1,0 +1,21 @@
+{
+  "name": "roon-extension-api-proxy",
+  "version": "1.0.0",
+  "description": "Restfull api proxy to Roon JS API",
+  "main": "app.js",
+  "author": "marcelveldt",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "debug": "^3.1.0",
+    "node-roon-api": "github:roonlabs/node-roon-api",
+    "node-roon-api-image": "github:roonlabs/node-roon-api-image",
+    "node-roon-api-status": "github:roonlabs/node-roon-api-status",
+    "node-roon-api-transport": "github:roonlabs/node-roon-api-transport",
+    "node-roon-api-browse": "github:roonlabs/node-roon-api-browse",
+    "node-roon-api-settings": "github:roonlabs/node-roon-api-settings",
+    "node-roon-api-volume-control": "github:roonlabs/node-roon-api-volume-control",
+    "node-roon-api-source-control": "github:roonlabs/node-roon-api-source-control",
+    "express": "4.x"
+  }
+}
