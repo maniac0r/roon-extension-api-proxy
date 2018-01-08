@@ -31,7 +31,7 @@ var timeout;
 var roon = new RoonApi({
    extension_id:        'marcelveldt.roon-api-proxy',
    display_name:        "Restfull api proxy to Roon JS API",
-   display_version:     "1.0.0",
+   display_version:     "1.0.1",
    publisher:           'marcelveldt',
    email:               '',
    log_level:           'none',
@@ -365,13 +365,9 @@ function play_by_title(zone_id, title, level1, level2, level3, cb) {
    refresh_browse( zone_id, { pop_all: true }, 0, 0, function(mainlist) {
         refresh_browse( zone_id, { item_key: mainlist[level1]['item_key'] }, 0, 0, function(playlists) {
             playlists.forEach(function(entry) {
-                console.log(entry);
                 if (entry["title"].toLowerCase() == title.toLowerCase()) {
-                    console.log("entry found");
                     refresh_browse( zone_id, { item_key: entry['item_key'] }, 0, 0, function(details) {
-                        console.log(details);
                         refresh_browse( zone_id, { item_key: details[level2]['item_key'] }, 0, 0, function(details2) {
-                            console.log(details2);
                             // action (0=play now, 1=radio, 2=add next, 3=queue)
                             refresh_browse( zone_id, { item_key: details2[level3]['item_key'] }, 0, 0, function(details3) { })
                         });

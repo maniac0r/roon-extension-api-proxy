@@ -1,6 +1,6 @@
 {
   "name": "roon-extension-api-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Restfull api proxy to Roon JS API",
   "main": "app.js",
   "author": "marcelveldt",
