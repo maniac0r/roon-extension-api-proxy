@@ -334,18 +334,30 @@ app.get('/play/genre', function(req, res) {
 });
 
 app.get('/browse', function(req, res) {
-   core.services.RoonApiBrowse.browse(opts, (err, r) => {
-        console.log(r);
+   core.services.RoonApiBrowse.browse(req.query, (err, r) => {
+        if (err || !r) { console.log(err, r); res.status(500).send(err); return; }
+        res.send(r);
+    });
+});
+
+
+app.get('/load', function(req, res) {
+   core.services.RoonApiBrowse.load(req.query, (err, r) => {
+        if (err || !r) { console.log(err, r); res.status(500).send(err); return; }
+        res.send(r);
+    });
+});
+
+
+app.get('/browseload', function(req, res) {
+   core.services.RoonApiBrowse.browse(req.query, (err, r) => {
+        if (err || !r) { console.log(err, r); res.status(500).send(err); return; }
         if (r.action == 'list') {
-            core.services.RoonApiBrowse.load({
-                hierarchy:          "browse",
-                offset:             0,
-                set_display_offset: 100,
-            }, (err, r) => {
-                items = r.items;
-                cb(r.items);
+            core.services.RoonApiBrowse.load(req.query, (err, r) => {
+                if (err) { console.log(err, r); res.status(500).send(err); return; }
+                res.send(r);
             });
-        }
+        } else { res.send(r); }
     });
 });
 
