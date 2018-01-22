@@ -155,6 +155,31 @@ app.get('/zone', function(req, res) {
   res.send(zones[req.query['zone']])
 });
 
+app.get('/output', function(req, res) {
+  result = ""
+  if (zones) {
+    for (var x in zones) for (var y in zones[x].outputs) if (zones[x].outputs[y].output_id == req.query['output']) result = zones[x].outputs[y];
+  }
+  res.send(result);
+});
+
+app.get('/zone_by_output_id', function(req, res) {
+  result = ""
+  if (zones) {
+    for (var x in zones) for (var y in zones[x].outputs) if (zones[x].outputs[y].output_id == req.query['output']) result = zones[x];
+  }
+  res.send(result);
+});
+
+app.get('/output_id_by_name', function(req, res) {
+  result = ""
+  if (zones) {
+    for (var x in zones) for (var y in zones[x].outputs) if (zones[x].outputs[y].display_name.toLowerCase() == req.query['name'].toLowerCase()) result = zones[x].outputs[y].output_id;
+  }
+  res.send(result);
+});
+
+
 app.get('/control', function(req, res) {
     core.services.RoonApiTransport.control(req.query['zone'], req.query['control']);
    res.send({
