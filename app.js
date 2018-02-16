@@ -163,6 +163,20 @@ app.get('/output', function(req, res) {
   res.send(result);
 });
 
+app.get('/zone_state', function(req, res) {
+  result = ""
+  if (zones) {
+    for (var x in zones)
+      for (var y in zones[x].outputs)
+        if (zones[x].zone_id ==  req.query['zone'] || zones[x].outputs[y].output_id == req.query['output'])
+          {
+            result = zones[x].state;
+            break;
+          }
+  }
+  res.send(result);
+});
+
 app.get('/zone_by_output_id', function(req, res) {
   result = ""
   if (zones) {
@@ -203,6 +217,13 @@ app.get('/mute', function(req, res) {
 
 app.get('/change_volume', function(req, res) {
   core.services.RoonApiTransport.change_volume(req.query['output'], "absolute", req.query['volume']);
+  res.send({
+    "status": "success"
+  })
+});
+
+app.get('/change_volume_relative', function(req, res) {
+  core.services.RoonApiTransport.change_volume(req.query['output'], "relative", req.query['volume']);
   res.send({
     "status": "success"
   })
